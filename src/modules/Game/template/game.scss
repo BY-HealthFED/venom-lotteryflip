@@ -1,0 +1,66 @@
+.target {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.wrap {
+    height: 100%;
+}
+
+.modifywrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    .modify{
+        position: absolute;
+        top: 0;
+    }
+}
+
+.item {
+    width: 33.333%; 
+    left: 33.333332%;
+    top: 25%;
+    height: 50%;
+    position: absolute;
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+    padding: 2%;
+  }
+
+  .flipper {
+    transition: all 0.6s ease;
+    transform-style: preserve-3d;
+    height: 100%;
+    position: relative;
+    box-shadow: 'outset 5px 0 10px #eee';
+
+    .front,
+    .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .front {
+        transform: rotateY(0deg);
+        background-color: #FF2151;
+        pointer-events: none;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    }
+
+    .back {
+        transform: rotateY(180deg);
+        pointer-events: none;
+        img {
+            width: 100%;
+        }
+    }
+}

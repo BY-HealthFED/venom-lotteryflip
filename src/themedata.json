@@ -1,0 +1,98 @@
+{
+    "NoticeModalTheme": {
+        "close": {
+            "backgroundColor": "rgba(0, 0, 0, 1)",
+            "width": "1em",
+            "height": "1em",
+            "zIndex": 108
+        },
+        "content": {
+            "zIndex": 107
+        },
+        "modify": [
+            {
+                "backgroundColor": "rgba(255, 152, 0, 0.4)",
+                "width": "120%",
+                "left": "-10%",
+                "height": "200px",
+                "top": "-5em"
+            }
+        ]
+    },
+    "FailedModalTheme": {
+        "close": {
+            "backgroundColor": "rgba(0, 0, 0, 1)",
+            "width": "1em",
+            "height": "1em",
+            "top": "-3em",
+            "right": "2em"
+        },
+        "content": {
+            "width": "20em",
+            "zIndex": 107
+        },
+        "modify": [
+            {
+                "backgroundColor": "rgba(255, 0, 0, 0.4)",
+                "width": "120%",
+                "left": "-10%",
+                "height": "200px",
+                "top": "-5em"
+            }
+        ]
+    },
+    "SuccessModalTheme": {
+        "overlay": {
+            "backgroundColor": "rgba(0,0,0,0.5)"
+        },
+        "content": {
+            "backgroundColor": "rgba(100, 100, 100, 0.2)",
+            "width": "19em",
+            "zIndex": 107
+        },
+        "close": {
+            "backgroundColor": "rgba(0, 0, 0, 1)",
+            "width": "1em",
+            "height": "1em",
+            "top": "-3em",
+            "left": "50%"
+        },
+        "modify": [
+            {
+                "backgroundColor": "rgba(0, 0, 255, 0.4)",
+                "width": "120%",
+                "left": "-10%",
+                "height": "200px",
+                "top": "-5em"
+            }
+        ]
+    },
+    "AddressModalTheme": {
+        "overlay": {
+            "backgroundColor": "rgba(0,0,0,0.5)"
+        },
+        "content": {
+            "backgroundColor": "rgba(100, 100, 100, 0.2)",
+            "width": "19em",
+            "zIndex": 107
+        },
+        "modify": [
+            {
+                "backgroundColor": "rgba(0, 0, 0, 0.4)",
+                "width": "120%",
+                "left": "-10%",
+                "height": "500px",
+                "top": "-5em"
+            }
+        ]
+    },
+    "MessageTheme": {
+        "wrap": {
+            "top": "5em",
+            "zIndex": 10000
+        },
+        "main": {
+            "backgroundColor": "red"
+        }
+    }
+}

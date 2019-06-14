@@ -1,0 +1,21 @@
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+    transform-origin: -20% -20%;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+    transform-origin: -20% -20%;
+  }
+
+  to {
+    opacity: 0;
+    transform-origin: -20% -20%;
+  }
+}
+
+.zoomOut {
+  animation-name: zoomOut;
+}

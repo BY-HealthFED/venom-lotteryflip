@@ -1,0 +1,28 @@
+$ui-perrem: get('basefont');
+
+/***
+string2number
+***/
+@function strip-units($number){
+  @return $number / ($number * 0 + 1);
+}
+
+/* stylelint-disable */
+/***
+fixpx
+***/
+@function fixpx($px) {
+  @return ($px/strip-units($ui-perrem))+rem;
+}
+
+$gray: gray;
+$gray-dark: darken($gray, 10%) !default;
+$gray-darker: darken($gray, 20%) !default;
+$gray-darkest: darken($gray, 30%) !default;
+$gray-light: lighten($gray, 30%) !default;
+$gray-lighter: lighten($gray, 35%) !default;
+$gray-lightest: lighten($gray, 45%) !default;
+
+$radius: 1rem;
+
+$level: 30;

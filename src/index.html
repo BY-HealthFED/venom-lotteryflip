@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Demo</title>
+    <script src="http://by-health-cdn.oss-cn-beijing.aliyuncs.com/region/regions.js"></script>
+    <script src="./prizes1.js"></script>
+    <script src="./prizes2.js"></script>
+    <script src="./themedata1.js"></script>
+    <script src="./themedata2.js"></script>
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+      }
+      .box1 {
+        width: 20em;
+        height: 18em;
+        margin: 0 auto;
+      }
+      #parentId1,
+      #parentId2 {
+        width: 100%;
+        height: 100%;
+      }
+      .clearfix:before,
+      .clearfix:after {
+        content: "";
+        display: table;
+      }
+      .clearfix:after {
+        clear: both;
+      }
+      #app {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="clearfix" style="padding-bottom: 50px; padding-top: 50px;">
+        <div class="box">
+          <div id="parentId1"></div>
+        </div>
+        <div style="text-align: center; padding-top: 1em">
+          <select id="changeCard">
+            <option value="6">6张卡牌</option>
+            <option value="5">5张卡牌</option>
+            <option value="4">4张卡牌</option>
+            <option value="3">3张卡牌</option>
+            <option value="2">2张卡牌</option>
+            <option value="1">1张卡牌</option>
+          </select>
+        </div>
+        <br/><br/><br/>
+        <div class="box1">
+          <div id="parentId2"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+        var prizesData1 = window.prizes1;
+        var prizesData2 = window.prizes2;
+        var rand = 6;
+        var Game = window.___LotteryFlip___.Game;
+
+        var start1 = function() {
+            return new Promise(function(resolve){
+                window.LotteryGame1.Loading.show();
+                window.setTimeout(function(){
+                window.LotteryGame1.Loading.hide();
+                resolve(prizes1[Math.floor(Math.random() * rand)]);
+                }, 1000);
+            });
+        }
+          
+  
+        var start2 = function() {
+            return new Promise(function(resolve){
+                window.LotteryGame1.Loading.show();
+                window.setTimeout(function(){
+                window.LotteryGame1.Loading.hide();
+                resolve(prizes2[4]);
+                }, 1000);
+            });
+        }
+          
+  
+        var saveAddress = function(data){
+            return new Promise(function(resolve){
+                window.LotteryGame1.Loading.show();
+                window.setTimeout(function(){
+                  console.log('data', data);
+			            console.log('saveAddress');
+                window.LotteryGame1.Loading.hide();
+                resolve();
+                }, 3000);
+            });
+        }
+
+        var checkVerificationCode = function(data){
+            return new Promise(function(resolve){
+                window.LotteryGame1.Loading.show();
+                window.setTimeout(function(){
+                window.LotteryGame1.Loading.hide();
+                resolve();
+                }, 1000);
+            });
+        }
+          
+  
+        var receiverInfo = {
+          idCard: "430522201008124611",
+          receiverPhone: "13622841234",
+          address: "address"
+        };
+  
+        var data1 = {
+          // targetId: "target1",
+          parentId: "parentId1",
+          playerPhone: "13635219421",
+          cardIdRequest: 3, // 填写收货地址时是否验证身份证: this.cardIdRequest = 1 隐藏身份证，2 验证身份证，3 身份证为空时不验证有填写时验证，4 不验证身份证
+          style: window.themedata1,
+          start: start1,
+          saveAddress: saveAddress,
+          receiverInfo: receiverInfo,
+          checkVerificationCode: checkVerificationCode, // 检查手机验证码
+          prizes: prizesData1.slice(0, rand),
+          emBase: 10,
+          onCancel: () => console.log('放弃1'),
+          onEnsure: function(prize){ console.log('确定中奖结果1！', prize); },
+          loading: {
+            size: 20,
+            length: 5,
+            cycleTime: 1
+          }
+        };
+  
+        var data2 = {
+          targetId: "target2",
+          parentId: "parentId2",
+          playerPhone: "13635219421",
+          cardIdRequest: 3, // 填写收货地址时是否验证身份证: this.cardIdRequest = 1 隐藏身份证，2 验证身份证，3 身份证为空时不验证有填写时验证，4 不验证身份证
+          style: window.themedata2,
+          start: start2,
+          saveAddress: saveAddress,
+          receiverInfo: receiverInfo,
+          checkVerificationCode: checkVerificationCode, // 检查手机验证码
+          prizes: prizesData2,
+          failedModalTitle: "...",
+          successModalTitle: "恭喜您抽中",
+          submitFailedText: "好吧~~~",
+          onCancel: () => console.log('放弃2'),
+          onEnsure: function(prize){ console.log('确定中奖结果2！', prize); },
+          loading: {
+            size: 20, // loading大小 默认20
+            length: 50, // 由几个vertices组成默认12个
+            cycleTime: 1
+          }
+        };
+        document.getElementById('changeCard').onchange = function(e){
+          rand = parseInt(e.target.value, 10);
+          data1.prizes = prizesData1.slice(0, rand);
+          window.LotteryGame1 = new Game(data1);
+        }
+        window.LotteryGame1 = new Game(data1);
+        window.LotteryGame2 = new Game(data2);
+        // window.LotteryGame2.AddressModal.showModal();
+      </script>
+</html>
