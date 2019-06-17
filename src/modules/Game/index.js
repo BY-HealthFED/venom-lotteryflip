@@ -192,7 +192,8 @@ class Game {
 	 */
 	distory = () => {
 		this.Loading.reset();
-		const mobileSelect = document.querySelector('.mobileSelect');
+		const { AddressPicker } = this.AddressModal;
+		const mobileSelect = document.querySelector(`#${AddressPicker.id}`);
 		mobileSelect && mobileSelect.parentNode.removeChild(mobileSelect);
 		Promise.all([
 			removeDom(this.targetId),
