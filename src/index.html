@@ -178,6 +178,7 @@
           }
         };
         document.getElementById('changeCard').onchange = function(e){
+          document.getElementById('parentId1').innerHTML='';
           rand = parseInt(e.target.value, 10);
           data1.prizes = prizesData1.slice(0, rand);
           window.LotteryGame1 = new Game(data1);
