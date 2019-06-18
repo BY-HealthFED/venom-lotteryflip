@@ -9,13 +9,13 @@
 | --------------------- | ---------------------- | -------- | ------------------------------------------------------------ | -------- |
 | parentId              | Game挂载Id             | 是       | 游戏将要寄生的Node Id                                        | String   |
 | targetId              | Game自身Id             | 否       | 默认game-target-时间戳+100以内随机数                         | String   |
-| style                 | Game皮肤定义           | 是       | 定义游戏模块的UI展示效果                                     | Object   |
+| style                 | Game皮肤定义           | 是       | 定义游戏模块的UI展示效果 document                            | Object   |
 | start                 | 启动抽奖方法           | 是       | 务必返回promise方法且resolve了中奖奖品，<br />start: () => new Promis((resolve, reject) => {<br />    resolve(**prize**)<br />}).catch(error => console.error(error))<br /> | Function |
 | saveAddress           | 保存收货人地址回调方法 | 是       | 接收省市区地址参数<br />saveAddress = function(data){<br />    console.log(data)<br />} | function |
-| prizes                | 奖品参数               | 是       |                                                              | Object   |
+| prizes                | 奖品参数               | 是       | 参考[prizes结构](#prizes)                                    | Object   |
 | playerPhone           | 参与人电话             | 否       |                                                              | String   |
 | checkVerificationCode | 验证参与人电话回调方法 | 否       |                                                              | Function |
-| receiverInfo          | 默认收货人信息         | 否       |                                                              | Object   |
+| receiverInfo          | 默认收货人信息         | 否       | document                                                     | Object   |
 | cardIdRequest         | 是否要求填写身份证     | 否       | 状态：1 隐藏身份证，2 验证身份证，3 身份证为空时不验证有填写时验证，4 不验证身份证 | Number   |
 | onCancel              | 取消时的回调           | 否       | 取消中奖结果或取消中奖后填写地址                             | Function |
 | onEnsure              | 确定时的回调           | 否       | 确定中奖结果或完成中奖填写地址后                             | Function |
@@ -25,11 +25,11 @@
 | submitSuccessText     | 中奖按钮文字           | 否       |                                                              | String   |
 | submitAddressText     | 中奖保存地址按钮文字   | 否       |                                                              | String   |
 | emBase                | em基准像素             | 否       |                                                              | Number   |
-| loading               | 设置Loading            | 否       | {<br />    size:20 尺寸大小,按百分比计算<br />    length:5 由几个点组成，默认12个<br />    cycleTime: 0.5 周期，动画旋转一周的时间<br />} | Object   |
-|                       |                        |          |                                                              |          |
-|                       |                        |          |                                                              |          |
+| loading               | 设置Loading            | 否       | document                                                     | Object   |
 
-#### prizes 结构
+#### <span id="prizes">prizes 结构</span>
+
+> 奖品是一个数组，游戏将根据奖品数组渲染页面，奖品数组的每一项必须包含以下属性
 
  ```javascript
 prizes = [{
@@ -47,7 +47,7 @@ prizes = [{
 
 
 
-
+#### case
 
 ```javascript
 import { Game } from '@byhealth/LotteryFlip';
