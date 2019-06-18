@@ -20,7 +20,7 @@
 |              | emBase                | em基准像素，Game将把此值写入到parentId的style.fontSize中，子元素将以此为单位基准，默认计算window宽度 | 否       | Number                               |
 |              | onCancel              | 取消中奖结果或取消中奖后填写地址时的回调                     | 否       | Function                             |
 |              | onEnsure              | 确定中奖结果或完成中奖填写地址时的回调                       | 否       | Function                             |
-|              | loading               | 设置Loading的属性,也可以在style中设置<br />[document]()      | 否       | Object                               |
+|              | loading               | 设置Loading的属性,也可以在style中设置<br />[document](<http://www.eightfeet.cn/Loading/>) | 否       | Object                               |
 | 显示文字定义 | failedModalTitle      | 未中奖弹窗标题                                               | 否       | String                               |
 |              | submitFailedText      | 未中奖按钮文字                                               | 否       | String                               |
 |              | successModalTitle     | 中奖弹窗标题                                                 | 否       | String                               |
