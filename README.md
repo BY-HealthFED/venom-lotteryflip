@@ -5,27 +5,29 @@
 
 #### parame
 
-| 参数                  | 说明                   | 是否必填 | 备注                                                         | 类型     |
-| --------------------- | ---------------------- | -------- | ------------------------------------------------------------ | -------- |
-| parentId              | Game挂载Id             | 是       | 游戏将要寄生的Node Id                                        | String   |
-| targetId              | Game自身Id             | 否       | 默认game-target-时间戳+100以内随机数                         | String   |
-| style                 | Game皮肤定义           | 是       | 定义游戏模块的UI展示效果 document                            | Object   |
-| start                 | 启动抽奖方法           | 是       | 务必返回promise方法且resolve了中奖奖品，<br />start: () => new Promis((resolve, reject) => {<br />    resolve(**prize**)<br />}).catch(error => console.error(error))<br /> | Function |
-| saveAddress           | 保存收货人地址回调方法 | 是       | 接收省市区地址参数<br />saveAddress = function(data){<br />    console.log(data)<br />} | function |
-| prizes                | 奖品参数               | 是       | 参考[prizes结构](#prizes)                                    | Object   |
-| playerPhone           | 参与人电话             | 否       |                                                              | String   |
-| checkVerificationCode | 验证参与人电话回调方法 | 否       |                                                              | Function |
-| receiverInfo          | 默认收货人信息         | 否       | document                                                     | Object   |
-| cardIdRequest         | 是否要求填写身份证     | 否       | 状态：1 隐藏身份证，2 验证身份证，3 身份证为空时不验证有填写时验证，4 不验证身份证 | Number   |
-| onCancel              | 取消时的回调           | 否       | 取消中奖结果或取消中奖后填写地址                             | Function |
-| onEnsure              | 确定时的回调           | 否       | 确定中奖结果或完成中奖填写地址后                             | Function |
-| failedModalTitle      | 未中奖弹窗标题         | 否       |                                                              | String   |
-| submitFailedText      | 未中奖按钮文字         | 否       |                                                              | String   |
-| successModalTitle     | 中奖弹窗文字           | 否       |                                                              | String   |
-| submitSuccessText     | 中奖按钮文字           | 否       |                                                              | String   |
-| submitAddressText     | 中奖保存地址按钮文字   | 否       |                                                              | String   |
-| emBase                | em基准像素             | 否       |                                                              | Number   |
-| loading               | 设置Loading            | 否       | document                                                     | Object   |
+|              | 参数名称              | 说明                                                         | 是否必填 | 类型                                 |
+| ------------ | --------------------- | ------------------------------------------------------------ | -------- | ------------------------------------ |
+| 重要参数     | parentId              | Game挂载Id<br />游戏将要寄生的Node Id                        | 是       | String                               |
+|              | targetId              | Game自身Id<br />默认game-target-时间戳+100以内随机数         | 否       | String                               |
+|              | style                 | Game皮肤定义<br />定义游戏模块的UI展示效果                   | 是       | Object                               |
+|              | prizes                | 奖品参数<br />参考[prizes结构](#prizes)                      | 是       | Array                                |
+|              | start                 | 开始抽奖，向后台请求抽奖结果然后以promise的形式将结果返回给Game以启动抽奖。<br />注意<br />1、务必返回Promise对象<br />2、中奖奖品数据结构必须等于prizes的某个子项 | 是       | Function<br />```()=>Promise(...)``` |
+|              | saveAddress           | 提交收货地址时保存收货人地址方法<br />当所中奖品的属性receiveType=2(填写地址)时将会弹出地址填写框，完成地址填写提交后调用此方法用于保存收货人地址，参数address是收集的地址信息<br />saveAddress = function(address){<br /><br />    console.log(data)<br />} | 是       | Function<br />```()=>Promise(...)``` |
+|              | playerPhone           | 参与抽奖人的电话号码，有则显示                               | 否       | String                               |
+|              | checkVerificationCode | 获取短信验证码方法，用于短信验证参与人电话号码，有电话号码且有此方法时开启短信验证 | 否       | Function                             |
+|              | receiverInfo          | 默认收货人信息，中奖时此信息将自动填写到收货地址表单         | 否       | Object                               |
+|              | cardIdRequest         | 是否要求填写或验证身份证<br />状态：1 隐藏身份证，2 验证身份证，3 身份证为空时不验证有填写时验证，4 不验证身份证 | 否       | Number                               |
+|              | emBase                | em基准像素，Game将把此值写入到parentId的style.fontSize中，子元素将以此为单位基准，默认计算window宽度 | 否       | Number                               |
+|              | onCancel              | 取消中奖结果或取消中奖后填写地址时的回调                     | 否       | Function                             |
+|              | onEnsure              | 确定中奖结果或完成中奖填写地址时的回调                       | 否       | Function                             |
+|              | loading               | 设置Loading的属性,也可以在style中设置<br />[document]()      | 否       | Object                               |
+| 显示文字定义 | failedModalTitle      | 未中奖弹窗标题                                               | 否       | String                               |
+|              | submitFailedText      | 未中奖按钮文字                                               | 否       | String                               |
+|              | successModalTitle     | 中奖弹窗标题                                                 | 否       | String                               |
+|              | submitSuccessText     | 中奖按钮文字                                                 | 否       | String                               |
+|              | submitAddressText     | 中奖去填写地址按钮文字                                       | 否       | String                               |
+
+
 
 #### <span id="prizes">prizes 结构</span>
 
