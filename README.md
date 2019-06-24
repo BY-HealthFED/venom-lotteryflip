@@ -52,7 +52,7 @@ prizes = [{
 #### case
 
 ```javascript
-import { Game } from '@byhealth/LotteryFlip';
+import { Game } from '@byhealth/lotteryflip';
 
 const LotteryGame = new Game({
           targetId: "target",
