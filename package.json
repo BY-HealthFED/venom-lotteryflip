@@ -43,7 +43,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
-    "@byhealth/walle": "^1.0.1",
+    "@byhealth/walle": "^1.0.2",
     "autoprefix": "^1.0.1",
     "babel-polyfill": "^6.26.0",
     "copy-webpack-plugin": "^5.0.3",
@@ -52,5 +52,12 @@
     "node-sass-utils": "^1.1.2",
     "validate-by-health": "^1.1.9",
     "web-animation-club": "^0.2.2"
-  }
+  },
+  "browserslist": [
+    "Android 2.3",
+    "Android >= 4",
+    "Chrome >= 29",
+    "iOS >= 6",
+    "Safari >= 7.1"
+  ]
 }
