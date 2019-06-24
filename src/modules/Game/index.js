@@ -1,4 +1,4 @@
-import { Loading, ResultModal, AddressModal, htmlFactory, tools } from '@eightfeet/walle';
+import { Loading, ResultModal, AddressModal, htmlFactory, tools } from '@byhealth/walle';
 
 import s from './template/game.scss';
 import { renderGame } from './template';

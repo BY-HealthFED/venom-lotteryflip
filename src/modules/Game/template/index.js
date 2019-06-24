@@ -1,5 +1,5 @@
 import s from './game.scss';
-import { htmlFactory } from '@eightfeet/walle';
+import { htmlFactory } from '@byhealth/walle';
 const { inlineStyle } = htmlFactory;
 
 

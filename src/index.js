@@ -1,4 +1,4 @@
-import { Loading, AddressModal, NoticeModal, validate, Message, Modal, htmlFactory } from '@eightfeet/walle';
+import { Loading, AddressModal, NoticeModal, validate, Message, Modal, htmlFactory } from '@byhealth/walle';
 const { inlineStyle } = htmlFactory;
 
 import Game from './modules/Game';
